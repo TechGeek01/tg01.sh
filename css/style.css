@@ -46,8 +46,6 @@
 	--loading-dot-pos1: calc(var(--loading-dot-initial) - 0.8 * var(--loading-dot-size));
 	--loading-dot-pos2: calc(var(--loading-dot-initial) + 0.8 * var(--loading-dot-size));
 
-	--squares: rgba(255, 255, 255, 0.2);
-
 	--content-width:  1200px;
 
 	--wedge-angle:  2deg;
@@ -56,6 +54,8 @@
 	--wedge-text: #222;
 	--wedge-text-size: 1.375rem;
 
+	--squares: rgba(255, 255, 255, 0.15);
+	--squares-green: rgba(255, 255, 255, 0.3);
 	--square-max-size: 7vw;
 	--square-min-blur: 0.08vw;
 	--square-blur-multiplier:  0.017;
@@ -297,7 +297,11 @@ footer.right::before {
 	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
 	color: var(--bg2-text-color);
 	animation: bg-animation 20s infinite alternate;
-	z-index: -2;
+	z-index: 2;
+}
+.green .content {
+	position: relative;
+	z-index: 5;
 }
 
 div.square {
@@ -312,6 +316,9 @@ div.square {
 	animation-delay: var(--del);
 	animation-duration: var(--dur);
 	z-index: 2;
+}
+.green div.square {
+	background: var(--squares-green);
 }
 
 @keyframes float-square {

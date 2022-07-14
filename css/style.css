@@ -226,7 +226,16 @@ nav li:last-child::after {
 	z-index: 5;
 }
 
-.wedge, footer {
+footer {
+	background: var(--wedge-bg);
+	position: relative;
+	width: 100vw;
+	left: 50%;
+	right: 50%;
+	margin: var(--wedge-height) -50vw 0;
+	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
+}
+.wedge {
 	background: var(--wedge-bg);
 	position: relative;
 	width: 100vw;

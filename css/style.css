@@ -55,7 +55,7 @@
 	--wedge-text-size: 1.375rem;
 
 	--squares: rgba(255, 255, 255, 0.15);
-	--squares-green: rgba(255, 255, 255, 0.3);
+	--squares-green: rgba(255, 255, 255, 0.4);
 	--square-max-size: 7vw;
 	--square-min-blur: 0.08vw;
 	--square-blur-multiplier:  0.017;
@@ -291,7 +291,7 @@ footer.right::before {
 	width: 100vw;
 	left: 50%;
 	right: 50%;
-	margin: calc(-1 * (var(--wedge-height) + 2.5em)) -50vw;
+	margin: calc(-1 * (var(--wedge-height) + 2em)) -50vw;
 	padding-top: calc(var(--wedge-height) + 2em);
 	padding-bottom: calc(var(--wedge-height) + 2em);
 	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
@@ -402,7 +402,8 @@ h2.color {
 }
 
 h1 {
-	font-size: 42pt;
+	font-size: 3rem;
+	line-height: 3rem;
 }
 
 a,
@@ -481,10 +482,15 @@ p + p {
 	display: inline-block;
 }
 .intro h1 {
-	font-size: var(--intro-text-size);
+	font-size: min(var(--intro-text-size), 14vw);
+	line-height: calc(min(var(--intro-text-size), 14vw) * 1.2);
 	font-family: "Poppins";
 	font-weight: 300;
 	font-variant: normal;
+	text-align: center;
+}
+.intro h1 span {
+	white-space: nowrap;
 }
 .intro h1 .em {
 	font-weight: 600;
@@ -492,12 +498,11 @@ p + p {
 .intro .tagline {
 	font-style: italic;
 	font-size: var(--intro-tagline-text-size);
-	margin-top: -0.25em;
+	margin-top: 0.75em;
 }
 
 .handwriting {
 	font-family: "Indie Flower";
-	padding-left: 0.25em;
 	text-decoration: underline;
 }
 
@@ -565,10 +570,6 @@ footer .copyright {
 	header {
 		flex-direction: column;
 		margin-top: 2em;
-	}
-
-	#logo {
-		/*margin-top: 10vw;*/
 	}
 
 	nav {

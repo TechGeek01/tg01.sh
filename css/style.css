@@ -5,34 +5,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
 :root {
-	--yellow: #ffdc00;
+	/*
+	 * Main stuff
+	 */
 
+	/* General colors */
 	--bg-color1: #600034;
 	--bg-color2: #600060;
 	--bg2-color1: #acc900;
 	--bg2-color2: #8ac900;
+	--bg2-text-color: #333;
 	--gray: #3e3f46;
 	--gray-dark1: #35383e;
 	--gray-dark2: #2e3133;
 	--accent: #9bc900;
 	--accent-dark1: #87b000;
 	--accent-dark2: #749600;
-	--bg2-text-color: #333;
-	--shadow: rgba(0, 0, 0, 0.6);
 
-	--nav-link-color: #999;
-	--nav-link-active-color: #333;
-	--link-color: #9bc900;
-	--link-active-color: #9bc900;
-	--wedge-link-color: #666;
-	--wedge-link-active-color: #600034;
-	--footer-link-color: #666;
+	/* Layout */
+	--content-width:  1200px;
 
-	--shadow-spread: 40px;
-
+	/* Alerts */
 	--alert-color: #675800;
 	--alert-bg: #ffee89;
 
+	/* Text stuff */
 	--text-color: #eee;
 	--text-size:  1.25rem;
 	--nav-text-size: 12pt;
@@ -40,28 +37,42 @@
 	--intro-text-size: 4rem;
 	--intro-tagline-text-size: 1.125rem;
 	--footer-text-size: 1rem;
+	--nav-link-color: #999;
+	--nav-link-active-color: #333;
+	--link-color: var(--accent);
+	--link-active-color: var(--accent);
+	--wedge-link-color: #666;
+	--wedge-link-active-color: var(--bg-color1);
+	--footer-link-color: #666;
 
+	/*
+	 * Effects & features
+	 */
+
+	/* Shadow */
+	--shadow: rgba(0, 0, 0, 0.6);
+	--shadow-spread: 40px;
+
+	/* Loading dots */
 	--loading-dot-initial: 9999px;
 	--loading-dot-size: 0.625rem;
 	--loading-dot-pos1: calc(var(--loading-dot-initial) - 0.8 * var(--loading-dot-size));
 	--loading-dot-pos2: calc(var(--loading-dot-initial) + 0.8 * var(--loading-dot-size));
 
-	--content-width:  1200px;
-
+	/* Wedges */
 	--wedge-angle:  2deg;
 	--wedge-height: 3.493vw; /* Computed with width * sin(angle) / sin(90 - angle) */
 	--wedge-bg: #eee;
 	--wedge-text: #222;
 	--wedge-text-size: 1.375rem;
 
+	/* Squares */
 	--squares: rgba(255, 255, 255, 0.15);
 	--squares-green: rgba(255, 255, 255, 0.4);
 	--square-max-size: 7vw;
 	--square-min-blur: 0.08vw;
 	--square-blur-multiplier:  0.017;
 	--square-blur-value: calc((var(--square-max-size) - var(--s)) * var(--square-blur-multiplier) + var(--square-min-blur));
-
-	--100percent:  calc(100%);
 }
 
 /*
@@ -78,10 +89,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-html, body {
-	height: 100%;
-}
-
 body {
 	background: linear-gradient(45deg, var(--bg-color1) 10%, var(--bg-color2) 95%) fixed;
 	background-size: 250%;
@@ -89,6 +96,7 @@ body {
 	font-family: "Roboto", sans-serif;;
 	font-size: var(--text-size);
 	animation: bg-animation 20s infinite alternate;
+	height: 100%;
 }
 
 @keyframes bg-animation {
@@ -109,6 +117,7 @@ body {
 	padding: 5px 10px;
 	text-align: center;
 	color: var(--alert-color);
+	font-size: 1rem;
 	background: var(--alert-bg);
 	border-bottom: 1px solid var(--alert-color);
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
@@ -117,11 +126,6 @@ body {
 /*
  * Navigation
  */
-
-/* Disable outline on nav link focus to use custom nav focus style */
-nav a:focus {
-	outline: none;
-}
 
 nav {
 	display: flex;
@@ -164,10 +168,6 @@ nav li::before {
 	transform: skewY(45deg);
 	transition: 0.5s;
 }
-nav li:hover::before,
-nav li:focus-within::before {
-	background: var(--accent-dark2);
-}
 nav li::after {
 	content: '';
 	position: absolute;
@@ -179,6 +179,10 @@ nav li::after {
 	transform-origin: bottom;
 	transform: skewX(45deg);
 	transition: 0.5s;
+}
+nav li:hover::before,
+nav li:focus-within::before {
+	background: var(--accent-dark2);
 }
 nav li:hover::after,
 nav li:focus-within::after {
@@ -202,10 +206,6 @@ nav li:last-child::after {
 	box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
 }
 
-@keyframes link-shake {
-
-}
-
 /*
  * Layout
  */
@@ -218,23 +218,15 @@ nav li:last-child::after {
 	flex-direction: column;
 	height: 100%;
 	position: relative;
-	padding: 0 2em 2em 2em;
+	padding: 0 2em;
 	color: var(--text-color);
 	font-weight: 400;
 }
-#wrapper > *:not(.green):not(.square) {
-	z-index: 5;
+
+#wrapper > *:not(.square):not(.green) {
+	z-index: 3;
 }
 
-footer {
-	background: var(--wedge-bg);
-	position: relative;
-	width: 100vw;
-	left: 50%;
-	right: 50%;
-	margin: var(--wedge-height) -50vw 0;
-	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
-}
 .wedge {
 	background: var(--wedge-bg);
 	position: relative;
@@ -242,15 +234,11 @@ footer {
 	left: 50%;
 	right: 50%;
 	margin: var(--wedge-height) -50vw;
-	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
-	z-index: 5;
-}
-.wedge {
+	padding: calc(var(--wedge-height) + 1em) max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
 	font-size: var(--wedge-text-size);
 	color: var(--wedge-text);
-	padding-top: calc(var(--wedge-height) + 1em);
-	padding-bottom: calc(var(--wedge-height) + 1em);
-	box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 var(--shadow-spread) var(--shadow);
+	z-index: 5;
 }
 .wedge.left {
 	transform: skew(var(--wedge-angle)) rotate(var(--wedge-angle));
@@ -259,35 +247,13 @@ footer {
 	transform: rotate(calc(-1 * var(--wedge-angle))) skew(calc(-1 * var(--wedge-angle)));
 }
 .wedge.right {
+	text-align: right;
 	transform: skew(calc(-1 * var(--wedge-angle))) rotate(calc(-1 * var(--wedge-angle)));
 }
 .wedge.right .content {
 	transform: rotate(var(--wedge-angle)) skew(var(--wedge-angle));
 }
 
-footer::before {
-	content: '';
-	display: block;
-	position: relative;
-	background: inherit;
-	margin-inline: calc(-1 * max(2em, ((100vw - var(--content-width)) / 2 + 2em)));
-	height: var(--wedge-height);
-	z-index: -1;
-	box-shadow: 0 0 var(--shadow-spread) rgba(0, 0, 0, 0.6);
-	clip-path: inset(calc(-1 * var(--shadow-spread)) 0 0 0);
-}
-footer.left::before {
-	transform-origin: bottom right;
-	transform: skewY(var(--wedge-angle));
-}
-footer.right::before {
-	transform-origin: bottom left;
-	transform: skewY(calc(-1 * var(--wedge-angle)));
-}
-
-.wedge.right {
-	text-align: right;
-}
 .wedge h1:first-child {
 	line-height: 1em;
 	margin-bottom: 0.25em;
@@ -404,10 +370,6 @@ h2 {
 	font-family: "Oswald", sans-serif;
 	font-variant: small-caps;
 	font-weight: 500;
-}
-h1.color,
-h2.color {
-	color: var(--accent);
 }
 
 h1 {
@@ -542,9 +504,34 @@ header {
 }
 
 footer {
-	padding-bottom: 2em;
 	font-size: var(--footer-text-size);
 	text-align: center;
+	background: var(--wedge-bg);
+	position: relative;
+	width: 100vw;
+	left: 50%;
+	right: 50%;
+	margin: var(--wedge-height) -50vw 0;
+	padding: 0 max(2em, calc((100vw - var(--content-width)) / 2 + 2em)) 2em;
+}
+footer::before {
+	content: '';
+	display: block;
+	position: relative;
+	background: inherit;
+	margin-inline: calc(-1 * max(2em, ((100vw - var(--content-width)) / 2 + 2em)));
+	height: var(--wedge-height);
+	z-index: -1;
+	box-shadow: 0 0 var(--shadow-spread) rgba(0, 0, 0, 0.6);
+	clip-path: inset(calc(-1 * var(--shadow-spread)) 0 0 0);
+}
+footer.left::before {
+	transform-origin: bottom right;
+	transform: skewY(var(--wedge-angle));
+}
+footer.right::before {
+	transform-origin: bottom left;
+	transform: skewY(calc(-1 * var(--wedge-angle)));
 }
 footer ul {
 	display: flex;

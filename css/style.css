@@ -59,7 +59,10 @@
 	/* Wedges */
 	--clr-wedge: #eee;
 	--wedge-angle:  2deg;
+	/* Set wedge height to prevent gaps */
 	--wedge-height: 3.493vw; /* Computed with width * sin(angle) / sin(90 - angle) */
+	/* Prevent wedge margin from getting too extreme with computed vw */
+	--wedge-margin: clamp(2.6rem, 2.6rem, var(--wedge-height)); /* 2.6 computed via content width & wedge height */
 	--wedge-text-size: 1.375rem;
 
 	/* Squares */
@@ -230,7 +233,7 @@ nav li:last-child::after {
 	width: 100vw;
 	left: 50%;
 	right: 50%;
-	margin: var(--wedge-height) -50vw;
+	margin: var(--wedge-margin) -50vw;
 	padding: calc(var(--wedge-height) + 1em) max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
 	font-size: var(--wedge-text-size);
 	color: var(--clr-wedge-text);

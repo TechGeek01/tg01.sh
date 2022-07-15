@@ -1,4 +1,7 @@
-setTimeout(() => {
-	//Add email
-	document.getElementById('email').innerHTML = '<a href="mailto:andy@tg01.sh">andy@tg01.sh</a>';
+// Add email to page
+etTimeout(() => {
+	const content = 'andy';
+	const content2 = 'tg01.sh';
+	const address = `${content}&#64;${content2}`;
+	document.getElementById('email').innerHTML = `<a href="mailto:${address}">${address}</a>`;
 }, 1500);

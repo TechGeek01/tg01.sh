@@ -254,11 +254,6 @@ nav li:last-child::after {
 	transform: rotate(var(--wedge-angle)) skew(var(--wedge-angle));
 }
 
-.wedge h1:first-child {
-	line-height: 1em;
-	margin-bottom: 0.25em;
-}
-
 .green {
 	background: linear-gradient(45deg, var(--clr-bg1-alt) 10%, var(--clr-bg2-alt) 95%) fixed;
 	background-size: 250%;
@@ -370,11 +365,12 @@ h2 {
 	font-family: "Oswald", sans-serif;
 	font-variant: small-caps;
 	font-weight: 500;
+	line-height: 1em;
+	margin-bottom: 0.25em;
 }
 
 h1 {
 	font-size: 3rem;
-	line-height: 3rem;
 }
 
 a,
@@ -397,7 +393,7 @@ a::after,
 .link-placeholder::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
+	bottom: 0.15em;
 	left: 0;
 	width: 100%;
 	height: 0.1em;

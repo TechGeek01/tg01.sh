@@ -447,6 +447,12 @@ p + p {
 	margin-top: 1em;
 }
 
+#email {
+	display: block;
+	font-size: 2rem;
+	margin-top: 0.5em;
+}
+
 .intro {
 	padding: 6em 0;
 	margin-inline: auto;

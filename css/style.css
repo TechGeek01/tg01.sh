@@ -43,7 +43,7 @@
 	--link-active-color: var(--accent);
 	--wedge-link-color: #666;
 	--wedge-link-active-color: var(--bg-color1);
-	--footer-link-color: #666;
+	--footer-color: #666;
 
 	/*
 	 * Effects & features
@@ -411,14 +411,18 @@ a:focus::after {
 	transform: scale(1);
 }
 
-.wedge a {
+.wedge a,
+footer a {
 	color: var(--wedge-link-color);
 }
 .wedge a:focus,
-.wedge a:hover {
+.wedge a:hover,
+footer a:focus,
+footer a:hover {
 	color: var(--wedge-link-active-color);
 }
-.wedge a::after {
+.wedge a::after,
+footer a::after {
 	background: var(--wedge-link-active-color);
 }
 
@@ -507,6 +511,7 @@ footer {
 	font-size: var(--footer-text-size);
 	text-align: center;
 	background: var(--wedge-bg);
+	color: var(--footer-color);
 	position: relative;
 	width: 100vw;
 	left: 50%;
@@ -541,17 +546,6 @@ footer ul {
 	column-gap: 1.5em;
 	justify-content: center;
 	margin-bottom: 0.5em;
-}
-
-footer a {
-	color: var(--footer-link-color);
-}
-footer a:focus,
-footer a:hover {
-	color: var(--wedge-link-active-color);
-}
-footer a::after {
-	background: var(--wedge-link-active-color);
 }
 
 footer .copyright {

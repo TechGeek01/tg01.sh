@@ -36,7 +36,7 @@
 	--clr-wedge-link-active: var(--clr-bg1);
 	--clr-footer-text: #666;
 	--text-size:  1.25rem;
-	--nav-text-size: 12pt;
+	--nav-text-size: min(1rem, calc((100vw - 2rem) / 20.75));
 	--email-text-size: 2rem;
 	--intro-text-size: 4rem;
 	--intro-tagline-text-size: 1.125rem;
@@ -127,22 +127,22 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 400px;
+	width: auto;
 	font-family: 'Oswald', sans-serif;
 	font-size: var(--nav-text-size);
 	box-sizing: content-box;
-	padding: 45px 0;
+	padding: clamp(2rem, 10vh, 4rem) 0;
 }
 nav ul {
 	position: relative;
 	transform: skewY(-15deg);
-	left: 15px;
-	top: 15px;
+	left: calc(1.25 * var(--nav-text-size));
+	top: var(--nav-text-size);
 }
 nav li {
 	position: relative;
 	list-style: none;
-	width: 200px;
+	width: calc(12.5 * var(--nav-text-size));
 	background: var(--clr-gray);
 	z-index: var(--i);
 	transition: 0.5s;
@@ -161,14 +161,14 @@ nav li::after {
 nav li:hover,
 nav li:focus-within {
 	background: var(--clr-accent);
-	transform: translateX(-50px);
+	transform: translateX(calc(-3.125 * var(--nav-text-size)));
 }
 nav li::before {
 	content: '';
 	position: absolute;
 	top:  0;
-	left: -40px;
-	width: 40px;
+	left: calc(-2.5 * var(--nav-text-size));
+	width: calc(2.5 * var(--nav-text-size));
 	height: 100%;
 	transform-origin: right;
 	transform: skewY(45deg);
@@ -177,10 +177,10 @@ nav li::before {
 nav li::after {
 	content: '';
 	position: absolute;
-	top: -40px;
+	top: calc(-2.5 * var(--nav-text-size));
 	left: 0;
 	width: 100%;
-	height: 40px;
+	height: calc(2.5 * var(--nav-text-size));
 	transform-origin: bottom;
 	transform: skewX(45deg);
 	transition: 0.5s;
@@ -189,7 +189,7 @@ nav li a {
 	text-decoration: none;
 	color: var(--clr-nav-link);
 	display: block;
-	padding: 15px;
+	padding: var(--nav-text-size);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	transition: 0.5s;
@@ -200,7 +200,7 @@ nav li:focus-within a {
 }
 
 nav li:last-child::after {
-	box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
+	box-shadow: calc(-7.5 * var(--nav-text-size)) calc(7.5 * var(--nav-text-size)) calc(1.125 * var(--nav-text-size)) rgba(0, 0, 0, 0.25);
 }
 
 /*
@@ -215,7 +215,7 @@ nav li:last-child::after {
 	flex-direction: column;
 	height: 100%;
 	position: relative;
-	padding: 0 2em;
+	padding-inline: clamp(1rem, 8vw, 2rem);
 	color: var(--clr-text);
 	font-weight: 400;
 }
@@ -483,7 +483,8 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: row-reverse;
+	flex-direction: column;
+	margin-top: 2em;
 	padding-top: 2em;
 	z-index: 5;
 }
@@ -553,14 +554,13 @@ footer .copyright {
  * Responsive design stuff
  */
 
-@media screen and (max-width:  899px) {
+@media screen and (min-width: 900px) {
 	header {
-		flex-direction: column;
-		margin-top: 2em;
+		flex-direction: row-reverse;
+		margin-top: 0;
 	}
 
 	nav {
-		width: auto;
-		padding: 10vh 0;
+		width: 400px;
 	}
 }

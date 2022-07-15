@@ -1,5 +1,5 @@
 // Add email to page
-etTimeout(() => {
+setTimeout(() => {
 	const content = 'andy';
 	const content2 = 'tg01.sh';
 	const address = `${content}&#64;${content2}`;

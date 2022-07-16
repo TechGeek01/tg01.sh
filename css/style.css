@@ -429,18 +429,18 @@ footer a::after,
 	background: var(--clr-wedge-link-active);
 }
 
-ul.socials {
+ul.platforms {
 	list-style: none;
 	display: flex;
 	column-gap: 2.5em;
 	flex-wrap: wrap;
 }
-ul.socials li {
+ul.platforms li {
 	vertical-align: middle;
 	white-space: nowrap;
 }
 
-ul.socials img {
+ul.platforms img {
 	width: 2em;
 	height: 2em;
 	fill: var(--clr-wedge-text);
@@ -450,7 +450,7 @@ ul.socials img {
 a.icon::after {
 	display: none;
 }
-ul.socials a.icon span::after {
+ul.platforms a.icon span::after {
 	bottom: -0.1em;
 }
 

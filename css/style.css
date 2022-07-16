@@ -197,6 +197,9 @@ nav li a {
 	letter-spacing: 0.05em;
 	transition: 0.5s;
 }
+nav li a::after {
+	display: none;
+}
 nav li:hover a,
 nav li:focus-within a {
 	color: var(--clr-nav-link-active);
@@ -389,8 +392,9 @@ a:hover {
 a:focus {
 	outline: none;
 }
-a::after,
-.link-placeholder::after {
+a:not(.icon)::after,
+.link-placeholder::after,
+a.icon span::after {
 	content: '';
 	position: absolute;
 	bottom: 0.15em;
@@ -402,8 +406,10 @@ a::after,
 	transform-origin: center;
 	transition: opacity 300ms, transform 300ms;
 }
-a:hover::after,
-a:focus::after {
+a:not(.icon):hover::after,
+a:not(.icon):focus::after,
+a.icon:hover span::after,
+a.icon:focus span::after {
 	transform: scale(1);
 }
 
@@ -418,21 +424,34 @@ footer a:hover {
 	color: var(--clr-wedge-link-active);
 }
 .wedge a::after,
-footer a::after {
+footer a::after,
+.wedge a.icon span::after {
 	background: var(--clr-wedge-link-active);
 }
 
 ul.socials {
 	list-style: none;
+	display: flex;
+	column-gap: 2.5em;
+	flex-wrap: wrap;
 }
 ul.socials li {
 	vertical-align: middle;
+	white-space: nowrap;
 }
 
-ul.socials .icon {
+ul.socials img {
 	width: 2em;
+	height: 2em;
 	fill: var(--clr-wedge-text);
 	vertical-align: middle;
+}
+
+a.icon::after {
+	display: none;
+}
+ul.socials a.icon span::after {
+	bottom: -0.1em;
 }
 
 #email {

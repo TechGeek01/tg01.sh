@@ -464,7 +464,7 @@ a:hover {
 a:focus {
 	outline: none;
 }
-a:not(.icon)::after,
+a::after,
 .link-placeholder::after,
 a.icon span::after {
 	content: '';

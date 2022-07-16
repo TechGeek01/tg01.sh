@@ -465,8 +465,7 @@ a:focus {
 	outline: none;
 }
 a::after,
-.link-placeholder::after,
-a.icon span::after {
+.link-placeholder::after {
 	content: '';
 	position: absolute;
 	bottom: 0.15em;
@@ -478,10 +477,8 @@ a.icon span::after {
 	transform-origin: center;
 	transition: opacity 300ms, transform 300ms;
 }
-a:not(.icon):hover::after,
-a:not(.icon):focus::after,
-a.icon:hover span::after,
-a.icon:focus span::after {
+a:hover::after,
+a:focus::after {
 	transform: scale(1);
 }
 
@@ -496,8 +493,7 @@ footer a:hover {
 	color: var(--clr-wedge-link-active);
 }
 .wedge a::after,
-footer a::after,
-.wedge a.icon span::after {
+footer a::after {
 	background: var(--clr-wedge-link-active);
 }
 
@@ -520,9 +516,6 @@ ul.platforms img {
 }
 
 a.icon::after {
-	display: none;
-}
-ul.platforms a.icon span::after {
 	bottom: -0.1em;
 }
 

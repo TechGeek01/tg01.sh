@@ -122,6 +122,13 @@ a:not([class]) {
 	text-decoration-skip-ink: auto;
 }
 
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -347,6 +354,11 @@ nav li:last-child::after {
 .green .content {
 	position: relative;
 	z-index: 5;
+}
+
+img {
+	display: inline-block;
+	max-width: unset;
 }
 
 div.square {

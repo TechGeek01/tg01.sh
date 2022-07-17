@@ -672,6 +672,6 @@ div.square {
 	}
 
 	nav {
-		width: 400px;
+		width: calc(25 * var(--nav-text-size));
 	}
 }

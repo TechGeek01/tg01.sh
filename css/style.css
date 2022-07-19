@@ -70,7 +70,6 @@
 	--square-max-size: 7vw;
 	--square-min-blur: 0.08vw;
 	--square-blur-multiplier:  0.017;
-	--square-blur-value: calc((var(--square-max-size) - var(--s)) * var(--square-blur-multiplier) + var(--square-min-blur));
 }
 
 /*
@@ -575,6 +574,8 @@ a.icon::after {
  */
 
 div.square {
+	--square-blur-value: calc((var(--square-max-size) - var(--s)) * var(--square-blur-multiplier) + var(--square-min-blur));
+
 	position: fixed;
 	width: var(--s);
 	height: var(--s);

@@ -66,8 +66,7 @@
 	--wedge-text-size: 1.375rem;
 
 	/* Squares */
-	--clr-squares: rgba(255, 255, 255, 0.15);
-	--clr-squares-green: rgba(255, 255, 255, 0.4);
+	--clr-squares: rgba(255, 255, 255, 0.3);
 	--square-max-size: 7vw;
 	--square-min-blur: 0.08vw;
 	--square-blur-multiplier:  0.017;
@@ -534,7 +533,6 @@ footer a::after {
 	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
 	color: var(--clr-bg2-text);
 	animation: bg-animation 20s infinite alternate;
-	z-index: 2;
 }
 .green .content {
 	position: relative;
@@ -588,9 +586,6 @@ div.square {
 	animation-delay: var(--del);
 	animation-duration: var(--dur);
 	z-index: 2;
-}
-.green div.square {
-	background: var(--clr-squares-green);
 }
 
 @keyframes float-square {

@@ -566,18 +566,19 @@ a.icon::after {
  */
 
 div.square {
+	--del: 0s;
+	--dur: 20s;
 	--square-blur-value: calc((var(--square-max-size) - var(--s)) * var(--square-blur-multiplier) + var(--square-min-blur));
+
 
 	position: fixed;
 	width: var(--s);
 	height: var(--s);
-	bottom: -9vw;
+	bottom: calc(-1 * var(--s));
 	left: var(--l);
 	background: var(--clr-squares);
 	filter: blur(calc(var(--square-blur-value)));
-	animation: float-square 20s linear infinite;
-	animation-delay: var(--del);
-	animation-duration: var(--dur);
+	animation: var(--dur) linear var(--del) infinite float-square;
 	z-index: 2;
 }
 
@@ -588,7 +589,7 @@ div.square {
 		border-radius: 50%;
 	}
 	100% {
-		transform: translateY(calc(-100vh - 9vw)) rotate(360deg);
+		transform: translateY(calc(-100vh - var(--s))) rotate(360deg);
 		opacity: 0;
 		border-radius: 0;
 	}

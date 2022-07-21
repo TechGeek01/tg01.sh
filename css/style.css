@@ -190,13 +190,13 @@ body {
 
 #construction {
 	width: 100%;
-	padding: 5px 10px;
+	padding: 0.3em 0.7em;
 	text-align: center;
 	color: var(--clr-alert-text);
 	font-size: 1rem;
 	background: var(--clr-alert);
 	border-bottom: 1px solid var(--clr-alert-text);
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 0.25em var(--clr-shadow);
 }
 
 /*
@@ -305,8 +305,8 @@ nav ul {
 nav li,
 nav li::before,
 nav li::after {
-	transition: background 300ms ease,
-	            color 300ms ease,
+	transition: background 300ms ease-in-out,
+	            color 300ms ease-in-out,
 	            transform 300ms cubic-bezier(.18,.89,.32,1.18);
 }
 nav li {
@@ -318,6 +318,8 @@ nav li {
 }
 nav li::before,
 nav li::after {
+	content: '';
+	position: absolute;
 	background: inherit;
 }
 nav li::before {
@@ -333,8 +335,6 @@ nav li:focus-within {
 	transform: translateX(calc(-3.125 * var(--nav-text-size)));
 }
 nav li::before {
-	content: '';
-	position: absolute;
 	top:  0;
 	left: calc(-2.5 * var(--nav-text-size));
 	width: calc(2.5 * var(--nav-text-size));
@@ -343,8 +343,6 @@ nav li::before {
 	transform: skewY(45deg);
 }
 nav li::after {
-	content: '';
-	position: absolute;
 	top: calc(-2.5 * var(--nav-text-size));
 	left: 0;
 	width: 100%;
@@ -359,9 +357,6 @@ nav li a {
 	padding: var(--nav-text-size);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-}
-nav li a::after {
-	display: none;
 }
 nav li:hover a,
 nav li:focus-within a {
@@ -398,8 +393,7 @@ header {
 	margin-left: -15px;
 }
 #logo img {
-	width:  216px;
-	max-width: 36vw;
+	width: min(36vw, 216px);
 	vertical-align: middle;
 }
 

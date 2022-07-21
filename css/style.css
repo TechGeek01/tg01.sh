@@ -302,13 +302,19 @@ nav ul {
 	left: calc(1.25 * var(--nav-text-size));
 	top: var(--nav-text-size);
 }
+nav li,
+nav li::before,
+nav li::after {
+	transition: background 300ms ease,
+	            color 300ms ease,
+	            transform 300ms cubic-bezier(.18,.89,.32,1.18);
+}
 nav li {
 	position: relative;
 	list-style: none;
 	width: calc(12.5 * var(--nav-text-size));
 	background: var(--clr-gray);
 	z-index: var(--i);
-	transition: 0.5s;
 }
 nav li::before,
 nav li::after {
@@ -335,7 +341,6 @@ nav li::before {
 	height: 100%;
 	transform-origin: right;
 	transform: skewY(45deg);
-	transition: 0.5s;
 }
 nav li::after {
 	content: '';
@@ -346,7 +351,6 @@ nav li::after {
 	height: calc(2.5 * var(--nav-text-size));
 	transform-origin: bottom;
 	transform: skewX(45deg);
-	transition: 0.5s;
 }
 nav li a {
 	text-decoration: none;
@@ -355,7 +359,6 @@ nav li a {
 	padding: var(--nav-text-size);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	transition: 0.5s;
 }
 nav li a::after {
 	display: none;

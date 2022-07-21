@@ -230,7 +230,7 @@ a,
 	padding-bottom: 0.3em;
 	text-decoration: none;
 	color: var(--clr-link);
-	transition: color 300ms;
+	transition: color 300ms ease-in-out;
 }
 a:focus,
 a:hover {
@@ -250,7 +250,7 @@ a::after,
 	background: var(--clr-link-active);
 	transform: scale(0);
 	transform-origin: center;
-	transition: opacity 300ms, transform 300ms;
+	transition: transform 300ms ease-in-out;
 }
 a:hover::after,
 a:focus::after {

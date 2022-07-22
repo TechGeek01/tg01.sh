@@ -353,6 +353,10 @@ nav li a {
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
+nav li a::after {
+	/* Override global underline link styling */
+	display: none;
+}
 nav li:hover a,
 nav li:focus-within a {
 	color: var(--clr-nav-link-active);

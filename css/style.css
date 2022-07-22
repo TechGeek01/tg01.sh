@@ -46,6 +46,12 @@
 	 * Effects & features
 	 */
 
+	/* Animations */
+	--transition-duration: 300ms;
+	/* Bezier curve to give subtle realistic bounce effect */
+	--transition-curve-default: ease-in-out;
+	--transition-curve: cubic-bezier(.18, .89, .32, 1.18);
+
 	/* Shadow */
 	--clr-shadow: rgba(0, 0, 0, 0.6);
 	--shadow-spread: 40px;
@@ -225,7 +231,7 @@ a,
 	padding-bottom: 0.3em;
 	text-decoration: none;
 	color: var(--clr-link);
-	transition: color 300ms ease-in-out;
+	transition: color var(--transition-duration) var(--transition-curve-default);
 }
 a:focus,
 a:hover {
@@ -245,7 +251,7 @@ a::after,
 	background: var(--clr-link-active);
 	transform: scale(0);
 	transform-origin: center;
-	transition: transform 300ms ease-in-out;
+	transition: transform var(--transition-duration) var(--transition-curve);
 }
 a:hover::after,
 a:focus::after {
@@ -300,9 +306,9 @@ nav ul {
 nav li,
 nav li::before,
 nav li::after {
-	transition: background 300ms ease-in-out,
-	            color 300ms ease-in-out,
-	            transform 300ms cubic-bezier(.18,.89,.32,1.18);
+	transition: background var(--transition-duration) var(--transition-curve-default),
+	            color var(--transition-duration) var(--transition-curve-default),
+	            transform var(--transition-duration) var(--transition-curve);
 }
 nav li {
 	position: relative;

@@ -273,7 +273,7 @@ img {
 	font-weight: 400;
 }
 
-#wrapper > *:not(.square):not(.green) {
+#wrapper > *:not(.square):not(.green):not(.wedge) {
 	z-index: 3;
 }
 
@@ -519,14 +519,17 @@ footer a::after {
 	left: 50%;
 	right: 50%;
 	margin: calc(-1 * (var(--wedge-height) + 2em)) -50vw;
-	padding-top: calc(var(--wedge-height) + 2em);
+	/*padding-top: calc(var(--wedge-height) + 2em);
 	padding-bottom: calc(var(--wedge-height) + 2em);
-	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
+	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));*/
 	color: var(--clr-bg2-text);
 	animation: bg-animation 20s infinite alternate;
 }
 .green .content {
 	position: relative;
+	padding-top: calc(var(--wedge-height) + 2em);
+	padding-bottom: calc(var(--wedge-height) + 2em);
+	padding-inline: max(2em, calc((100vw - var(--content-width)) / 2 + 2em));
 	z-index: 5;
 }
 

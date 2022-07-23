@@ -249,13 +249,14 @@ a::after,
 	width: 100%;
 	height: 0.1em;
 	background: var(--clr-link-active);
-	transform: scale(0);
-	transform-origin: center;
+	transform: scaleX(0);
+	transform-origin: right;
 	transition: transform var(--transition-duration) var(--transition-curve);
 }
 a:hover::after,
 a:focus::after {
-	transform: scale(1);
+	transform: scaleX(1);
+	transform-origin: left;
 }
 
 img {

@@ -251,7 +251,7 @@ a::after,
 	background: var(--clr-link-active);
 	transform: scaleX(0);
 	transform-origin: right;
-	transition: transform var(--transition-duration) var(--transition-curve);
+	transition: transform var(--transition-duration) ease-in;
 }
 a:hover::after,
 a:focus::after {

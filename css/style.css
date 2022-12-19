@@ -308,6 +308,7 @@ nav ul {
 nav li,
 nav li::before,
 nav li::after {
+	background: var(--clr-gray);
 	transition: background var(--transition-duration) var(--transition-curve-default),
 	            color var(--transition-duration) var(--transition-curve-default),
 	            transform var(--transition-duration) var(--transition-curve);
@@ -316,14 +317,12 @@ nav li {
 	position: relative;
 	list-style: none;
 	width: calc(12.5 * var(--nav-text-size));
-	background: var(--clr-gray);
 	z-index: var(--i);
 }
 nav li::before,
 nav li::after {
 	content: '';
 	position: absolute;
-	background: inherit;
 }
 nav li::before {
 	filter: brightness(70%);
@@ -333,8 +332,15 @@ nav li::after {
 }
 
 nav li:hover,
-nav li:focus-within {
+nav li:focus-within,
+nav li:hover::before,
+nav li:focus-within::before,
+nav li:hover::after,
+nav li:focus-within::after {
 	background: var(--clr-accent);
+}
+nav li:hover,
+nav li:focus-within {
 	transform: translateX(calc(-3.125 * var(--nav-text-size)));
 }
 nav li::before {

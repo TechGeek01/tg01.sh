@@ -27,7 +27,7 @@
 
 	/* Text stuff */
 	--clr-text: #eee;
-	--clr-nav-link: #999;
+	--clr-nav-link: #aaa;
 	--clr-nav-link-active: #333;
 	--clr-link: var(--clr-accent);
 	--clr-link-active: var(--clr-accent);

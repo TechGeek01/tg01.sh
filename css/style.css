@@ -472,7 +472,7 @@ footer.right::before {
 	transform-origin: bottom left;
 	transform: skewY(calc(-1 * var(--wedge-angle)));
 }
-footer ul {
+footer .links {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;

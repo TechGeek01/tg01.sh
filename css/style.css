@@ -68,7 +68,7 @@
 	/* Set wedge height to prevent gaps */
 	--wedge-height: 3.493vw; /* Computed with width * sin(angle) / sin(90 - angle) */
 	/* Prevent wedge margin from getting too extreme with computed vw */
-	--wedge-margin: clamp(3.6rem, 3.6rem, var(--wedge-height)); /* 2.6 computed via content width & wedge height */
+	--wedge-margin: clamp(2.6rem, 2.6rem, var(--wedge-height)); /* 2.6 computed via content width & wedge height */
 	--wedge-text-size: 1.375rem;
 
 	/* Squares */
